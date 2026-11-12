@@ -1,13 +1,7 @@
 import knex from "knex";
+import knexConfig from "./knex-config";
 
-const database = knex({
-  client: "pg",
-  connection: process.env.DATABASE_URL,
-  pool: {
-    min: 2,
-    max: 10,
-  },
-});
+const database = knex(knexConfig);
 
 export const checkDatabaseConnection = async (): Promise<void> => {
   await database.raw("SELECT 1");
