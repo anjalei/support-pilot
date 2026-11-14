@@ -13,6 +13,8 @@ export const sendSuccess = <T>(
   return res.status(statusCode).json({
     success: true,
     message: options.message,
-    ...(options.data !== undefined && { data: options.data }),
+    ...(options.data !== undefined && {
+      data: options.data,
+    }),
   });
 };
